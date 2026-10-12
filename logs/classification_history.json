@@ -1,0 +1,51 @@
+[
+    {
+        "filename": "paper7.jpg",
+        "prediction": "paper",
+        "confidence": 0.9991876482963562,
+        "confidence_percent": 99.92,
+        "time": "05/08/26 11:16 PM"
+    },
+    {
+        "filename": "metal2.jpg",
+        "prediction": "metal",
+        "confidence": 0.98296058177948,
+        "confidence_percent": 98.3,
+        "time": "05/08/26 11:16 PM"
+    },
+    {
+        "filename": "landfill-site-waste-glass-close-up-WDF00393.jpg",
+        "prediction": "organic",
+        "confidence": 0.9966358542442322,
+        "confidence_percent": 99.66,
+        "time": "05/30/26 12:22 PM"
+    },
+    {
+        "filename": "plastic14.jpg",
+        "prediction": "plastic",
+        "confidence": 0.9982777833938599,
+        "confidence_percent": 99.83,
+        "time": "05/30/26 12:24 PM"
+    },
+    {
+        "filename": "plastic7.jpg",
+        "prediction": "plastic",
+        "confidence": 0.993035614490509,
+        "confidence_percent": 99.3,
+        "time": "06/25/26 07:01 PM"
+    },
+    {
+        "filename": "plastic8.jpg",
+        "prediction": "plastic",
+        "confidence": 0.9777135252952576,
+        "confidence_percent": 97.77,
+        "time": "06/29/26 02:40 PM"
+    },
+    {
+        "filename": "paper7.jpg",
+        "prediction": "paper",
+        "confidence": 0.9969088435173035,
+        "confidence_percent": 99.69,
+        "time": "07/08/26 03:54 PM"
+    }
+]

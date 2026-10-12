@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>History</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/static/icon_images/icons/mainLogo.svg">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="app-header">
+
+    <!-- Branding -->
+    <div class="brand">
+      <img src="/static/icon_images/icons/history.png" alt="History" class="brand-icon">
+      <h1>Classification History</h1>
+    </div>
+
+    <!-- Mobile menu toggle -->
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <!-- Navigation -->
+    <nav class="nav" id="navMenu">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/history" class="nav-link active">History</a>
+      <a href="/admin" class="nav-link">Admin</a>
+    </nav>
+
+  </header>
+
+  <!-- ================= MAIN ================= -->
+  <main class="container">
+
+    <!-- ===== HISTORY TABLE ===== -->
+    <section class="card">
+
+      <div class="table-container">
+        <table class="table">
+
+          <!-- Table Header -->
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Class</th>
+              <th>Confidence</th>
+              <th>Confidence (%)</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+
+          <!-- Table Body -->
+          <tbody>
+
+            {% for item in history %}
+            <tr>
+              <td>
+                <a href="/static/samples/{{ item.filename }}" target="_blank">
+                  {{ item.filename }}
+                </a>
+              </td>
+
+              <td>
+                <span class="badge category">{{ item.prediction }}</span>
+              </td>
+
+              <td>{{ item.confidence }}</td>
+              <td>{{ item.confidence_percent }}%</td>
+              <td class="muted">{{ item.time }}</td>
+            </tr>
+            {% endfor %}
+
+            <!-- Empty state -->
+            {% if not history or history|length == 0 %}
+            <tr>
+              <td colspan="4" class="muted">
+                No history yet. Classify an item to see logs.
+              </td>
+            </tr>
+            {% endif %}
+
+          </tbody>
+
+        </table>
+      </div>
+
+    </section>
+
+    <!-- Clear history button -->
+    <div style="margin-bottom: 15px; text-align: right;">
+      <button id="clearHistoryBtn" class="btn">
+        Clear History
+      </button>
+    </div>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="app-footer">
+    <p>History helps monitor classification and history.</p>
+  </footer>
+
+  <!-- Main JS -->
+  <script src="/static/js/script.js"></script>
+
+</body>
+</html>

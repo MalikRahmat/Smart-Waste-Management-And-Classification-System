@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Waste Classifier</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/static/icon_images/icons/mainLogo.svg">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="app-header">
+
+    <!-- Branding -->
+    <div class="brand">
+      <img src="/static/icon_images/icons/Picture1.png" alt="Recycle" class="brand-icon">
+      <h1>Smart Waste Classification</h1>
+    </div>
+
+    <!-- Mobile menu toggle -->
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <!-- Navigation -->
+    <nav class="nav" id="navMenu">
+      <a href="/" class="nav-link active">Home</a>
+      <a href="/history" class="nav-link">History</a>
+      <a href="/admin" class="nav-link">Admin</a>
+    </nav>
+
+  </header>
+
+  <!-- ================= MAIN ================= -->
+  <main class="container">
+
+    <!-- ===== IMAGE INPUT SECTION ===== -->
+    <section class="card">
+
+      <h2>Upload or Capture Waste Image</h2>
+
+      <p class="muted">
+        Supported formats: JPG, JPEG, PNG, BMP, TIFF, WEBP.
+        Clear, non-blurry images classify faster and more accurately.
+      </p>
+
+      <div class="grid-2">
+
+        <!-- ===== FILE UPLOAD PANEL ===== -->
+        <div class="panel">
+
+          <form id="uploadForm" aria-label="Upload image for classification">
+            <label class="file-input">
+              <input type="file" id="fileInput" name="file" accept="image/*" required>
+              <span>Select image</span>
+            </label>
+
+            <button type="submit" class="btn">Classify waste</button>
+          </form>
+
+          <!-- Image preview -->
+          <div class="preview-box">
+            <img id="previewImage" class="preview-img" style="display:none" alt="Selected preview">
+          </div>
+
+          <!-- Result / status -->
+          <div id="resultBox" class="status" role="status" aria-live="polite"></div>
+
+        </div>
+
+        <!-- ===== CAMERA PANEL ===== -->
+        <div class="panel">
+
+          <!-- Camera stream -->
+          <div class="camera-box">
+            <video id="cameraStream" autoplay playsinline></video>
+            <canvas id="cameraCanvas" style="display:none"></canvas>
+          </div>
+
+          <!-- Camera controls -->
+          <div class="cam-actions">
+            <button id="startCameraBtn" class="btn">Start camera</button>
+            <button id="captureBtn" class="btn" disabled>Capture & classify</button>
+            <button id="stopCameraBtn" class="btn danger" style="display:none;">
+              Stop camera
+            </button>
+          </div>
+
+          <!-- Captured preview -->
+          <div class="capture-wrapper">
+            <img id="capturedPreview" class="preview-img" style="display:none" alt="Captured preview">
+            <button id="removeCaptureBtn" class="close-btn" style="display:none;" onclick="removeCapturedImage()">×</button>
+          </div>
+
+          <!-- Camera status -->
+          <div id="cameraStatus" class="status" role="status" aria-live="polite"></div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ===== QUICK TIPS ===== -->
+    <section class="tips">
+
+      <h3>Quick tips</h3>
+
+      <ul class="list">
+        <li><strong>Clarity:</strong> Avoid blurry images. Place item on plain background.</li>
+        <li><strong>Lighting:</strong> Good lighting helps detection.</li>
+        <li><strong>Framing:</strong> Keep the waste item centered.</li>
+      </ul>
+
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="app-footer">
+    <p>Made with AI & Computer Vision for cleaner communities.</p>
+  </footer>
+
+  <!-- Main JS -->
+  <script src="/static/js/script.js"></script>
+
+</body>
+</html>

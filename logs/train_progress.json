@@ -1,0 +1,1 @@
+{"status": "stopped", "message": "Training stopped by user", "progress": 100, "total_epochs": 10, "loss": 0.20961830019950867, "accuracy": 0.9163144826889038, "val_loss": 0.2979801297187805, "val_accuracy": 0.890625}

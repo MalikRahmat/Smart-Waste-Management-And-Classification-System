@@ -1,0 +1,12 @@
+# Python virtual environment block
+.venv/
+venv/
+ENV/
+__pycache__/
+*.pyc
+
+# Local data and model check points (Optional but safe)
+.idea/
+.vscode/
+instance/
+.pytest_cache/

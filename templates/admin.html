@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/static/icon_images/icons/mainLogo.svg">
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="app-header">
+
+    <!-- Branding -->
+    <div class="brand">
+      <img src="/static/icon_images/icons/admin.png" alt="Admin" class="brand-icon">
+      <h1>Admin Panel</h1>
+    </div>
+
+    <!-- Mobile menu toggle button -->
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <!-- Navigation menu -->
+    <nav class="nav" id="navMenu">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/history" class="nav-link">History</a>
+      <a href="/admin" class="nav-link active">Admin</a>
+      <a href="/admin/logs" class="nav-link">Logs</a>
+      <a href="/admin/eval" class="nav-link">Evaluation</a>
+    </nav>
+
+  </header>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main class="container">
+
+    <!-- ===== DATASET MANAGEMENT ===== -->
+    <section class="card">
+      <h2>Dataset Management</h2>
+
+      <!-- Hidden folder input for dataset upload -->
+      <input type="file" id="datasetInput" style="display:none" multiple webkitdirectory directory>
+
+      <!-- Add Dataset -->
+      <div class="dataset-action">
+        <button id="addDatasetBtn" class="btn">Add Dataset</button>
+        <span id="addLoader" class="loader" style="display:none;"></span>
+
+        <p class="hint">
+          Add new images as a single allowed category folder (metal, plastic, paper, organic, glass)<br>
+          Existing files merge, new ones are added.
+        </p>
+      </div>
+
+      <!-- Update Dataset -->
+      <div class="dataset-action">
+        <button id="updateDatasetBtn" class="btn">Update Dataset</button>
+        <span id="updateLoader" class="loader" style="display:none;"></span>
+
+        <p class="hint warn">
+          Update a single allowed category (metal, plastic, paper, organic, glass)<br>
+          Existing files are replaced with the new ones.
+        </p>
+      </div>
+
+      <!-- Dataset operation status -->
+      <p id="datasetMsg" class="status"></p>
+    </section>
+
+    <!-- ===== MODEL TRAINING ===== -->
+    <section class="card">
+      <h2>Model Training</h2>
+
+      <!-- Training controls -->
+      <button id="retrainBtn" class="btn">Retrain Model</button>
+      <button id="stopTrainingBtn" class="btn danger" style="display:none;">
+        Stop Training
+      </button>
+
+      <!-- Training status -->
+      <p id="adminMsg" class="status"></p>
+
+      <!-- Training progress UI -->
+      <div id="trainProgressBox" class="progress-wrapper" style="display:none;">
+        <p>Training in progress...</p>
+
+        <progress id="trainProgress" value="0" max="100"></progress>
+        <span id="trainPercent">0%</span>
+
+
+      </div>
+        <div><p id="trainStats" class="hint" style="margin-top:10px;"></p></div>
+    </section>
+
+    <!-- ===== REPORT GENERATION ===== -->
+    <section class="card">
+      <h2>Reports</h2>
+
+      <button id="generateReportBtn" class="btn">Generate Report</button>
+
+      <!-- Report status output -->
+      <div id="reportBox" class="status"></div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="app-footer">
+    <p>Admin tools for managing dataset and training the model.</p>
+  </footer>
+
+  <!-- Main JS file -->
+  <script src="/static/js/script.js"></script>
+
+</body>
+</html>
