@@ -45,11 +45,32 @@ from utils.admin_tools import (
 # Flask App Configuration
 # =========================================================
 
-app = Flask(__name__, template_folder="templates")
+# app = Flask(__name__, template_folder="templates")
+#
+# app.config["UPLOAD_FOLDER"] = os.path.join("static", "samples")
+# os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
+# app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024 * 1024
 
+import os
+from flask import Flask
+
+# 1. Absolute paths configure karein taake Vercel templates ko dhoondh sake
+app = Flask(__name__,
+            template_folder=os.path.abspath('templates'),
+            static_folder=os.path.abspath('static'))
+
+# 2. Upload directory ka path set karein
 app.config["UPLOAD_FOLDER"] = os.path.join("static", "samples")
-os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
+
+# 3. CRITICAL HACK FOR VERCEL: Local computer par folder banayein, Vercel par is line ko skip karein
+if not os.environ.get('VERCEL'):
+    os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
+
 app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024 * 1024
+
+# Vercel serverless application pipeline k liye export line
+app = app
+
 
 
 # =========================================================
