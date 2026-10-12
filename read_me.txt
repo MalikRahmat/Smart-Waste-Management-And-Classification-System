@@ -12,4 +12,4 @@ Steps to Run Project:
 
 5. Open browser:
    http://127.0.0.1:5000
-6. Run training from admin panel to generate trained_model.h5 after adding dataset.
+6. Run training from admin panel to generate trained_model.h5 after adding dataset...
