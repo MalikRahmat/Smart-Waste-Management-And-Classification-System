@@ -1,15 +1,15 @@
-# Python environments
-.venv/
-venv/
-__pycache__/
-*.pyc
-
-# Project data folders (Inhein Vercel par upload nahi karna)
-dataset_raw/
-dataset_refined/
-dataset_split/
-logs/
-
-# IDE files
-.idea/
-.vscode/
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "app.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "app.py"
+    }
+  ]
+}
